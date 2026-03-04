@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indian Stock Market Sector Analysis Dashboard - Comprehensive PE, EPS, and Revenue trends analysis">
+    <title>Sector Analysis Dashboard | Indian Stock Market</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">📊</div>
+                    <div class="header-text">
+                        <h1>Indian Stock Market Sector Analysis</h1>
+                        <p class="subtitle">Comprehensive Trend Analysis Dashboard (2015-2025)</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-badge">
+                        <span class="stat-label">Sectors</span>
+                        <span class="stat-value">5</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-label">Years</span>
+                        <span class="stat-value">10</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Controls Panel -->
+            <section class="controls-panel">
+                <div class="control-container">
+                    <div class="control-group">
+                        <label for="sectorSelect">
+                            <span class="label-icon">🏢</span>
+                            Select Sector
+                        </label>
+                        <select id="sectorSelect" class="select-dropdown">
+                            <option value="auto">NIFTY AUTO</option>
+                            <option value="bank">NIFTY BANK</option>
+                            <option value="it">NIFTY IT</option>
+                            <option value="fmcg">NIFTY FMCG</option>
+                            <option value="pharma">NIFTY PHARMA</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="metricSelect">
+                            <span class="label-icon">📈</span>
+                            Select Metrics
+                        </label>
+                        <select id="metricSelect" class="select-dropdown">
+                            <option value="all">All Metrics</option>
+                            <option value="index">Index Value Only</option>
+                            <option value="pe">PE Ratio Only</option>
+                            <option value="eps">EPS Only</option>
+                            <option value="revenue">Revenue/Share Only</option>
+                            <option value="pe_eps">PE vs EPS</option>
+                            <option value="pe_revenue">PE vs Revenue</option>
+                            <option value="revenue_eps">Revenue vs EPS</option>
+                        </select>
+                    </div>
+
+                    <button id="refreshBtn" class="refresh-btn">
+                        <span>🔄</span>
+                        Refresh Chart
+                    </button>
+                </div>
+            </section>
+
+            <!-- Chart Section -->
+            <section class="chart-section">
+                <div class="chart-header">
+                    <h2 id="chartTitle">Normalized Trend Analysis</h2>
+                    <div class="chart-info">
+                        <span class="info-badge">📊 Normalized Scale: 0-1</span>
+                        <span class="info-badge">💡 Hover for actual values</span>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Info Cards -->
+            <section class="info-section">
+                <h2 class="section-title">Sector Overview</h2>
+                <div id="infoCards" class="info-cards-grid"></div>
+            </section>
+
+            <!-- Data Table -->
+            <section class="data-section">
+                <h2 class="section-title">Historical Data</h2>
+                <div class="table-controls">
+                    <button id="showTableBtn" class="secondary-btn">Show Data Table</button>
+                    <button id="downloadBtn" class="secondary-btn">📥 Download as CSV</button>
+                </div>
+                <div id="dataTable" class="data-table-wrapper" style="display: none;"></div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Data Sources</h3>
+                    <p>NSE, FinLive.in, Investing.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Analysis Period</h3>
+                    <p>January 2015 - December 2025</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Methodology</h3>
+                    <p>Normalized values (0-1 scale) for comparison</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Sector Analysis Dashboard | Built for Indian Stock Market Analysis</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
